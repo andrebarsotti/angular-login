@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from './auth/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -8,9 +9,20 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'angular-login';
+  isLoggedIn: boolean = false;
 
-  constructor(public router: Router) {}
+  constructor(public router: Router,
+              private authService: AuthService) {
+    this.authService.isAuthenticated$.subscribe(isAuthenticated => this.isLoggedIn = isAuthenticated);
+  }
 
-  login() {}
+  login() {
+    console.log("Olá!")
+    this.authService.login();
+  }
+
+  logout() {
+    this.logout();
+  }
 
 }
