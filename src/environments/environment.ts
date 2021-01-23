@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   authConfig: {
-    clientId: 'Ov7sxwygnbWdwh2BLVTPNC8jDYka',
+    clientId: 'EceRZNJ5nOQ8ZbwXyXM_jfPVSCYa',
     issuerUrl: 'https://localhost:9443/oauth2/authorize'
   }
 };

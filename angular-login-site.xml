@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?><ServiceProvider>
+  <ApplicationName>angular-login-site</ApplicationName>
+  <Description>Site de estudos para o login WSO2 IS no angular.</Description>
+  <JwksUri/>
+  <InboundAuthenticationConfig>
+    <InboundAuthenticationRequestConfigs>
+      <InboundAuthenticationRequestConfig>
+        <InboundAuthKey>angular-login-site</InboundAuthKey>
+        <InboundAuthType>openid</InboundAuthType>
+        <InboundConfigType>standardAPP</InboundConfigType>
+        <Properties/>
+      </InboundAuthenticationRequestConfig>
+      <InboundAuthenticationRequestConfig>
+        <InboundAuthKey>angular-login-site</InboundAuthKey>
+        <InboundAuthType>passivests</InboundAuthType>
+        <InboundConfigType>standardAPP</InboundConfigType>
+        <Properties/>
+      </InboundAuthenticationRequestConfig>
+      <InboundAuthenticationRequestConfig>
+        <InboundAuthKey>EceRZNJ5nOQ8ZbwXyXM_jfPVSCYa</InboundAuthKey>
+        <InboundAuthType>oauth2</InboundAuthType>
+        <InboundConfigType>standardAPP</InboundConfigType>
+        <inboundConfiguration><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<oAuthAppDO>
+    <oauthConsumerKey>EceRZNJ5nOQ8ZbwXyXM_jfPVSCYa</oauthConsumerKey>
+    <oauthConsumerSecret>1G1lx39P0prA7yfI3bJ7l_gLecsa</oauthConsumerSecret>
+    <applicationName>angular-login-site</applicationName>
+    <callbackUrl>http://localhost:4200/index.html</callbackUrl>
+    <oauthVersion>OAuth-2.0</oauthVersion>
+    <grantTypes>refresh_token urn:ietf:params:oauth:grant-type:saml2-bearer implicit password client_credentials iwa:ntlm urn:ietf:params:oauth:grant-type:device_code authorization_code urn:ietf:params:oauth:grant-type:uma-ticket account_switch urn:ietf:params:oauth:grant-type:jwt-bearer </grantTypes>
+    <scopeValidators/>
+    <pkceSupportPlain>true</pkceSupportPlain>
+    <pkceMandatory>false</pkceMandatory>
+    <state>ACTIVE</state>
+    <userAccessTokenExpiryTime>3600</userAccessTokenExpiryTime>
+    <applicationAccessTokenExpiryTime>3600</applicationAccessTokenExpiryTime>
+    <refreshTokenExpiryTime>86400</refreshTokenExpiryTime>
+    <idTokenExpiryTime>3600</idTokenExpiryTime>
+    <audiences/>
+    <bypassClientCredentials>true</bypassClientCredentials>
+    <renewRefreshTokenEnabled>true</renewRefreshTokenEnabled>
+    <requestObjectSignatureValidationEnabled>false</requestObjectSignatureValidationEnabled>
+    <idTokenEncryptionEnabled>true</idTokenEncryptionEnabled>
+    <idTokenEncryptionAlgorithm>RSA-OAEP</idTokenEncryptionAlgorithm>
+    <idTokenEncryptionMethod>A128GCM</idTokenEncryptionMethod>
+    <tokenType>JWT</tokenType>
+    <tokenBindingType>cookie</tokenBindingType>
+</oAuthAppDO>
+]]></inboundConfiguration>
+        <Properties/>
+      </InboundAuthenticationRequestConfig>
+      <InboundAuthenticationRequestConfig>
+        <InboundAuthKey>angular-login-app</InboundAuthKey>
+        <InboundAuthType>samlsso</InboundAuthType>
+        <InboundConfigType>standardAPP</InboundConfigType>
+        <inboundConfiguration><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<samlssoServiceProviderDTO>
+    <issuer>angular-login-app</issuer>
+    <assertionConsumerUrls>
+        <assertionConsumerUrl>http://locahost:4200/index.html</assertionConsumerUrl>
+    </assertionConsumerUrls>
+    <defaultAssertionConsumerUrl>http://locahost:4200/index.html</defaultAssertionConsumerUrl>
+    <certAlias>wso2carbon</certAlias>
+    <loginPageURL></loginPageURL>
+    <attributeConsumingServiceIndex></attributeConsumingServiceIndex>
+    <doSingleLogout>true</doSingleLogout>
+    <doSignAssertions>true</doSignAssertions>
+    <doSignResponse>true</doSignResponse>
+    <doFrontChannelLogout>false</doFrontChannelLogout>
+    <requestedClaims/>
+    <requestedAudiences/>
+    <requestedRecipients/>
+    <enableAttributeProfile>false</enableAttributeProfile>
+    <isAssertionQueryRequestProfileEnabled>false</isAssertionQueryRequestProfileEnabled>
+    <enableAttributesByDefault>false</enableAttributesByDefault>
+    <nameIDFormat>urn/oasis/names/tc/SAML/1.1/nameid-format/emailAddress</nameIDFormat>
+    <idPInitSSOEnabled>false</idPInitSSOEnabled>
+    <idPInitSLOEnabled>false</idPInitSLOEnabled>
+    <idpInitSLOReturnToURLs/>
+    <doEnableEncryptedAssertion>false</doEnableEncryptedAssertion>
+    <doValidateSignatureInRequests>true</doValidateSignatureInRequests>
+    <signingAlgorithmURI>http://www.w3.org/2000/09/xmldsig#rsa-sha1</signingAlgorithmURI>
+    <digestAlgorithmURI>http://www.w3.org/2000/09/xmldsig#sha1</digestAlgorithmURI>
+    <assertionEncryptionAlgorithmURI>http://www.w3.org/2001/04/xmlenc#aes256-cbc</assertionEncryptionAlgorithmURI>
+    <keyEncryptionAlgorithmURI>http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p</keyEncryptionAlgorithmURI>
+    <enableSAML2ArtifactBinding>false</enableSAML2ArtifactBinding>
+    <doValidateSignatureInArtifactResolve>false</doValidateSignatureInArtifactResolve>
+    <samlECP>false</samlECP>
+</samlssoServiceProviderDTO>
+]]></inboundConfiguration>
+        <Properties/>
+      </InboundAuthenticationRequestConfig>
+    </InboundAuthenticationRequestConfigs>
+  </InboundAuthenticationConfig>
+  <LocalAndOutBoundAuthenticationConfig>
+    <AuthenticationSteps/>
+    <AuthenticationType>default</AuthenticationType>
+    <alwaysSendBackAuthenticatedListOfIdPs>false</alwaysSendBackAuthenticatedListOfIdPs>
+    <UseTenantDomainInUsername>false</UseTenantDomainInUsername>
+    <UseUserstoreDomainInRoles>true</UseUserstoreDomainInRoles>
+    <UseUserstoreDomainInUsername>false</UseUserstoreDomainInUsername>
+    <SkipConsent>false</SkipConsent>
+    <skipLogoutConsent>false</skipLogoutConsent>
+    <EnableAuthorization>false</EnableAuthorization>
+  </LocalAndOutBoundAuthenticationConfig>
+  <RequestPathAuthenticatorConfigs/>
+  <InboundProvisioningConfig>
+    <ProvisioningUserStore/>
+    <IsProvisioningEnabled>false</IsProvisioningEnabled>
+    <IsDumbModeEnabled>false</IsDumbModeEnabled>
+  </InboundProvisioningConfig>
+  <OutboundProvisioningConfig>
+    <ProvisioningIdentityProviders/>
+  </OutboundProvisioningConfig>
+  <ClaimConfig>
+    <RoleClaimURI/>
+    <LocalClaimDialect>true</LocalClaimDialect>
+    <IdpClaim/>
+    <ClaimMappings/>
+    <AlwaysSendMappedLocalSubjectId>false</AlwaysSendMappedLocalSubjectId>
+    <SPClaimDialects/>
+  </ClaimConfig>
+  <PermissionAndRoleConfig>
+    <Permissions/>
+    <RoleMappings/>
+    <IdpRoles/>
+  </PermissionAndRoleConfig>
+  <IsSaaSApp>false</IsSaaSApp>
+  <ImageUrl/>
+  <AccessUrl/>
+  <IsDiscoverable>false</IsDiscoverable>
+</ServiceProvider>
