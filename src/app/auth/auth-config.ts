@@ -3,11 +3,12 @@ import { environment } from 'src/environments/environment';
 
 export const authConfig: AuthConfig = {
   issuer: environment.authConfig.issuerUrl,
-  redirectUri: window.location.origin + '/index.html',
   clientId: environment.authConfig.clientId,
-  // dummyClientSecret: 'secret',
+  postLogoutRedirectUri: environment.authConfig.postLogoutRedirectUrl,
+  redirectUri: window.location.origin + '/index.html',
+  silentRefreshRedirectUri: window.location.origin + '/silent-refresh.html',
+  scope: 'openid profile email produto-estabelecimento-api',
   responseType: 'code',
-  scope: 'openid profile email offline_access api',
   sessionChecksEnabled: true,
   clearHashAfterLogin: false
 };

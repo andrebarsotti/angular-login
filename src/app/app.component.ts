@@ -9,7 +9,7 @@ import { AuthService } from './auth/auth.service';
 })
 export class AppComponent {
   title = 'angular-login';
-  isLoggedIn: boolean = false;
+  isLoggedIn = false;
 
   constructor(public router: Router,
               private authService: AuthService) {
@@ -17,7 +17,6 @@ export class AppComponent {
   }
 
   login() {
-    console.log("Olá!")
     this.authService.login();
   }
 

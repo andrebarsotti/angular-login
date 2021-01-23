@@ -34,15 +34,13 @@ export class AuthService {
 
     private navigateToLoginPage() {
         // TODO: Remember current URL
-        this.router.navigateByUrl('/force-login');
+        //this.router.navigateByUrl('/force-login');
     }
 
     constructor(
         private oauthService: OAuthService,
         private router: Router,
     ) {
-        this.oauthService.configure(authConfig);
-
         // Useful for debugging:
         if (!environment.production) {
             this.oauthService.events.subscribe(event => {
@@ -84,7 +82,7 @@ export class AuthService {
             .pipe(filter(e => ['session_terminated', 'session_error'].includes(e.type)))
             .subscribe(e => this.navigateToLoginPage());
 
-        this.oauthService.setupAutomaticSilentRefresh();
+        //this.oauthService.setupAutomaticSilentRefresh();
     }
 
     public runInitialLoginSequence(): Promise<void> {

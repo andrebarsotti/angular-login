@@ -5,8 +5,9 @@
 export const environment = {
   production: false,
   authConfig: {
-    clientId: 'EceRZNJ5nOQ8ZbwXyXM_jfPVSCYa',
-    issuerUrl: 'https://localhost:9443/oauth2/authorize'
+    clientId: 'umplim-produto-estabelecimento',
+    issuerUrl: 'http://localhost:5500',
+    postLogoutRedirectUrl: 'http://localhost:4200/'
   }
 };
 

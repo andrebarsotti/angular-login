@@ -8,12 +8,11 @@
         "name": "Launch Chrome",
         "request": "launch",
         "type": "pwa-chrome",
-        "preLaunchTask": "npm: start",
         "runtimeArgs": [
           "--disable-web-security"
         ],
-        "url": "http://localhost:4200",
+        "url": "http://localhost:5960",
         "webRoot": "${workspaceFolder}"
-      }
+      },
     ]
 }
