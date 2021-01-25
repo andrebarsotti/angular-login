@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/auth/auth.service';
+import { OAuthService } from 'angular-oauth2-oidc';
 
 @Component({
   selector: 'app-home',
@@ -7,19 +7,36 @@ import { AuthService } from 'src/app/auth/auth.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  isLoggedIn = false;
-
-  constructor(private authService: AuthService) {
-    this.authService.isAuthenticated$.subscribe(isAuthenticated => this.isLoggedIn = isAuthenticated);
+  constructor(private oauthService: OAuthService) {
   }
 
   login() {
-    this.authService.login();
+    this.oauthService.initImplicitFlow();
   }
 
   logout() {
-    this.authService.logout();
+    this.oauthService.logOut();
   }
+
+  get isLoggedIn(): boolean {
+    return this.oauthService.hasValidAccessToken();
+  }
+
+  getName(): string {
+    const claims: any = this.oauthService.getIdentityClaims();
+    if (!claims) {
+      return null;
+    }
+    return claims.given_name;
+  }
+
+   getEMail(): string {
+    const claims: any = this.oauthService.getIdentityClaims();
+    if (!claims) {
+      return null;
+    }
+    return claims.sub;
+   }
 
   ngOnInit() {
   }

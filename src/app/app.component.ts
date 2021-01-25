@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from './auth/auth.service';
+import { OAuthService } from 'angular-oauth2-oidc';
+import { JwksValidationHandler } from 'angular-oauth2-oidc-jwks';
+import { authConfig } from 'src/auth/auth-config';
 
 @Component({
   selector: 'app-root',
@@ -12,16 +14,11 @@ export class AppComponent {
   isLoggedIn = false;
 
   constructor(public router: Router,
-              private authService: AuthService) {
-    this.authService.isAuthenticated$.subscribe(isAuthenticated => this.isLoggedIn = isAuthenticated);
-  }
+              private oauthService: OAuthService) {
+    this.oauthService.configure(authConfig);
+    this.oauthService.tokenValidationHandler = new JwksValidationHandler();
 
-  login() {
-    this.authService.login();
-  }
-
-  logout() {
-    this.logout();
+    this.oauthService.loadDiscoveryDocumentAndTryLogin();
   }
 
 }
