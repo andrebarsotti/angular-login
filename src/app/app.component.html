@@ -17,10 +17,6 @@
           <a class="nav-link" [routerLink]="['/services']">Services</a>
           <span class="sr-only" *ngIf="router.url == '/services'">(current)</span>
         </li>
-        <li class="nav-item">
-          <button class="btn btn-primary" (click)="login()" *ngIf="!isLoggedIn">Login</button>
-          <button class="btn btn-primary" (click)="logout()" *ngIf="isLoggedIn">Logout</button>
-        </li>
       </ul>
     </div>
   </div>

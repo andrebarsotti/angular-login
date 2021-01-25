@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from './auth/auth.service';
+import { OAuthService } from 'angular-oauth2-oidc';
+import { JwksValidationHandler } from 'angular-oauth2-oidc-jwks';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -12,16 +14,14 @@ export class AppComponent {
   isLoggedIn = false;
 
   constructor(public router: Router,
-              private authService: AuthService) {
-    this.authService.isAuthenticated$.subscribe(isAuthenticated => this.isLoggedIn = isAuthenticated);
-  }
+              private oauthService: OAuthService) {
+    this.oauthService.redirectUri = window.location.origin + '/index.html';
+    this.oauthService.clientId = environment.authConfig.clientId;
+    this.oauthService.issuer = environment.authConfig.issuerUrl;
+    this.oauthService.scope = 'openid profile email produto-estabelecimento-api';
+    this.oauthService.tokenValidationHandler = new JwksValidationHandler();
 
-  login() {
-    this.authService.login();
-  }
-
-  logout() {
-    this.logout();
+    this.oauthService.loadDiscoveryDocumentAndTryLogin();
   }
 
 }
