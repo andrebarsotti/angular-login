@@ -11,26 +11,20 @@
         <Properties/>
       </InboundAuthenticationRequestConfig>
       <InboundAuthenticationRequestConfig>
-        <InboundAuthKey>angular-login-site</InboundAuthKey>
-        <InboundAuthType>passivests</InboundAuthType>
-        <InboundConfigType>standardAPP</InboundConfigType>
-        <Properties/>
-      </InboundAuthenticationRequestConfig>
-      <InboundAuthenticationRequestConfig>
-        <InboundAuthKey>EceRZNJ5nOQ8ZbwXyXM_jfPVSCYa</InboundAuthKey>
+        <InboundAuthKey>veRYoZZnZW8tz3MsH1hq3mYVhUoa</InboundAuthKey>
         <InboundAuthType>oauth2</InboundAuthType>
         <InboundConfigType>standardAPP</InboundConfigType>
         <inboundConfiguration><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <oAuthAppDO>
-    <oauthConsumerKey>EceRZNJ5nOQ8ZbwXyXM_jfPVSCYa</oauthConsumerKey>
-    <oauthConsumerSecret>1G1lx39P0prA7yfI3bJ7l_gLecsa</oauthConsumerSecret>
+    <oauthConsumerKey>veRYoZZnZW8tz3MsH1hq3mYVhUoa</oauthConsumerKey>
+    <oauthConsumerSecret>ShkmLqxFNVsBnitWc2kyKuunlSca</oauthConsumerSecret>
     <applicationName>angular-login-site</applicationName>
-    <callbackUrl>http://localhost:4200/index.html</callbackUrl>
+    <callbackUrl>regexp=(http://localhost:5960/index.html|http://localhost:5960/silent-refresh.html)</callbackUrl>
     <oauthVersion>OAuth-2.0</oauthVersion>
     <grantTypes>refresh_token urn:ietf:params:oauth:grant-type:saml2-bearer implicit password client_credentials iwa:ntlm urn:ietf:params:oauth:grant-type:device_code authorization_code urn:ietf:params:oauth:grant-type:uma-ticket account_switch urn:ietf:params:oauth:grant-type:jwt-bearer </grantTypes>
     <scopeValidators/>
     <pkceSupportPlain>true</pkceSupportPlain>
-    <pkceMandatory>false</pkceMandatory>
+    <pkceMandatory>true</pkceMandatory>
     <state>ACTIVE</state>
     <userAccessTokenExpiryTime>3600</userAccessTokenExpiryTime>
     <applicationAccessTokenExpiryTime>3600</applicationAccessTokenExpiryTime>
@@ -40,13 +34,18 @@
     <bypassClientCredentials>true</bypassClientCredentials>
     <renewRefreshTokenEnabled>true</renewRefreshTokenEnabled>
     <requestObjectSignatureValidationEnabled>false</requestObjectSignatureValidationEnabled>
-    <idTokenEncryptionEnabled>true</idTokenEncryptionEnabled>
-    <idTokenEncryptionAlgorithm>RSA-OAEP</idTokenEncryptionAlgorithm>
-    <idTokenEncryptionMethod>A128GCM</idTokenEncryptionMethod>
-    <tokenType>JWT</tokenType>
-    <tokenBindingType>cookie</tokenBindingType>
+    <idTokenEncryptionEnabled>false</idTokenEncryptionEnabled>
+    <idTokenEncryptionAlgorithm>null</idTokenEncryptionAlgorithm>
+    <idTokenEncryptionMethod>null</idTokenEncryptionMethod>
+    <tokenType>Default</tokenType>
 </oAuthAppDO>
 ]]></inboundConfiguration>
+        <Properties/>
+      </InboundAuthenticationRequestConfig>
+      <InboundAuthenticationRequestConfig>
+        <InboundAuthKey>angular-login-site</InboundAuthKey>
+        <InboundAuthType>passivests</InboundAuthType>
+        <InboundConfigType>standardAPP</InboundConfigType>
         <Properties/>
       </InboundAuthenticationRequestConfig>
       <InboundAuthenticationRequestConfig>
@@ -93,7 +92,22 @@
     </InboundAuthenticationRequestConfigs>
   </InboundAuthenticationConfig>
   <LocalAndOutBoundAuthenticationConfig>
-    <AuthenticationSteps/>
+    <AuthenticationSteps>
+      <AuthenticationStep>
+        <StepOrder>1</StepOrder>
+        <LocalAuthenticatorConfigs>
+          <LocalAuthenticatorConfig>
+            <Name>BasicAuthenticator</Name>
+            <DisplayName>basicauth</DisplayName>
+            <IsEnabled>true</IsEnabled>
+            <Properties/>
+          </LocalAuthenticatorConfig>
+        </LocalAuthenticatorConfigs>
+        <FederatedIdentityProviders/>
+        <SubjectStep>true</SubjectStep>
+        <AttributeStep>true</AttributeStep>
+      </AuthenticationStep>
+    </AuthenticationSteps>
     <AuthenticationType>default</AuthenticationType>
     <alwaysSendBackAuthenticatedListOfIdPs>false</alwaysSendBackAuthenticatedListOfIdPs>
     <UseTenantDomainInUsername>false</UseTenantDomainInUsername>
@@ -116,7 +130,32 @@
     <RoleClaimURI/>
     <LocalClaimDialect>true</LocalClaimDialect>
     <IdpClaim/>
-    <ClaimMappings/>
+    <ClaimMappings>
+      <ClaimMapping>
+        <LocalClaim>
+          <ClaimUri>http://wso2.org/claims/userid</ClaimUri>
+          <claimId>0</claimId>
+        </LocalClaim>
+        <RemoteClaim>
+          <ClaimUri>http://wso2.org/claims/userid</ClaimUri>
+          <claimId>0</claimId>
+        </RemoteClaim>
+        <RequestClaim>true</RequestClaim>
+        <MandatoryClaim>false</MandatoryClaim>
+      </ClaimMapping>
+      <ClaimMapping>
+        <LocalClaim>
+          <ClaimUri>http://wso2.org/claims/username</ClaimUri>
+          <claimId>0</claimId>
+        </LocalClaim>
+        <RemoteClaim>
+          <ClaimUri>http://wso2.org/claims/username</ClaimUri>
+          <claimId>0</claimId>
+        </RemoteClaim>
+        <RequestClaim>true</RequestClaim>
+        <MandatoryClaim>false</MandatoryClaim>
+      </ClaimMapping>
+    </ClaimMappings>
     <AlwaysSendMappedLocalSubjectId>false</AlwaysSendMappedLocalSubjectId>
     <SPClaimDialects/>
   </ClaimConfig>

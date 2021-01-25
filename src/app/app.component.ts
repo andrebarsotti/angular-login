@@ -18,7 +18,7 @@ export class AppComponent {
     this.oauthService.redirectUri = window.location.origin + '/index.html';
     this.oauthService.clientId = environment.authConfig.clientId;
     this.oauthService.issuer = environment.authConfig.issuerUrl;
-    this.oauthService.scope = 'openid profile email';
+    this.oauthService.scope = 'openid';
     this.oauthService.responseType = 'code';
     this.oauthService.disablePKCE = false;
     this.oauthService.sessionChecksEnabled = true;
