@@ -9,7 +9,9 @@
         "request": "launch",
         "type": "pwa-chrome",
         "runtimeArgs": [
-          " --disable-web-security --disable-gpu --user-data-dir=%userprofile%\\Chrome.Teste"
+          " --disable-web-security",
+          "--disable-gpu",
+          "--user-data-dir=C:\\tmpChromeSession"
         ],
         "url": "http://localhost:5960",
         "webRoot": "${workspaceFolder}"

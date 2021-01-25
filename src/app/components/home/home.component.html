@@ -1,7 +1,8 @@
 <div class="row">
   <div class="col-lg-12 text-center">
     <h1 class="mt-5">Bem vindo ao estudo do login no WSO2 no angular 10.</h1>
-    <p class="lead">Essa aplicação roda em Angular 10 e espera um WSO2 Identity Server.</p>
+    <p class="lead" *ngIf="!isLoggedIn">Essa aplicação roda em Angular 10 e espera um WSO2 Identity Server.</p>
+    <p class="lead" *ngIf="isLoggedIn">Olá <strong>{{ getName() }}</strong>!</p>
     <button class="btn btn-primary" (click)="login()" *ngIf="!isLoggedIn">Login</button>
     <button class="btn btn-primary" (click)="logout()" *ngIf="isLoggedIn">Logout</button>
   </div>

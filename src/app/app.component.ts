@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { OAuthService } from 'angular-oauth2-oidc';
 import { JwksValidationHandler } from 'angular-oauth2-oidc-jwks';
-import { environment } from 'src/environments/environment';
+import { authConfig } from 'src/auth/auth-config';
 
 @Component({
   selector: 'app-root',
@@ -15,17 +15,7 @@ export class AppComponent {
 
   constructor(public router: Router,
               private oauthService: OAuthService) {
-    this.oauthService.redirectUri = window.location.origin + '/index.html';
-    this.oauthService.clientId = environment.authConfig.clientId;
-    this.oauthService.issuer = environment.authConfig.issuerUrl;
-    this.oauthService.scope = 'openid';
-    this.oauthService.responseType = 'code';
-    this.oauthService.disablePKCE = false;
-    this.oauthService.sessionChecksEnabled = true;
-    this.oauthService.showDebugInformation = true;
-    this.oauthService.clearHashAfterLogin = false;
-    this.oauthService.skipIssuerCheck = true;
-    this.oauthService.strictDiscoveryDocumentValidation = false;
+    this.oauthService.configure(authConfig);
     this.oauthService.tokenValidationHandler = new JwksValidationHandler();
 
     this.oauthService.loadDiscoveryDocumentAndTryLogin();

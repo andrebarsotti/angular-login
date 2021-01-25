@@ -22,6 +22,22 @@ export class HomeComponent implements OnInit {
     return this.oauthService.hasValidAccessToken();
   }
 
+  getName(): string {
+    const claims: any = this.oauthService.getIdentityClaims();
+    if (!claims) {
+      return null;
+    }
+    return claims.given_name;
+  }
+
+   getEMail(): string {
+    const claims: any = this.oauthService.getIdentityClaims();
+    if (!claims) {
+      return null;
+    }
+    return claims.sub;
+   }
+
   ngOnInit() {
   }
 
