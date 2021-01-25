@@ -18,7 +18,14 @@ export class AppComponent {
     this.oauthService.redirectUri = window.location.origin + '/index.html';
     this.oauthService.clientId = environment.authConfig.clientId;
     this.oauthService.issuer = environment.authConfig.issuerUrl;
-    this.oauthService.scope = 'openid profile email produto-estabelecimento-api';
+    this.oauthService.scope = 'openid profile email';
+    this.oauthService.responseType = 'code';
+    this.oauthService.disablePKCE = false;
+    this.oauthService.sessionChecksEnabled = true;
+    this.oauthService.showDebugInformation = true;
+    this.oauthService.clearHashAfterLogin = false;
+    this.oauthService.skipIssuerCheck = true;
+    this.oauthService.strictDiscoveryDocumentValidation = false;
     this.oauthService.tokenValidationHandler = new JwksValidationHandler();
 
     this.oauthService.loadDiscoveryDocumentAndTryLogin();
