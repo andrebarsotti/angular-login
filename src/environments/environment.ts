@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   authConfig: {
-    clientId: 'veRYoZZnZW8tz3MsH1hq3mYVhUoa',
+    clientId: 'rWee3pmvjqMInzrvI2XfFkTX2XYa',
     issuerUrl: 'https://localhost:9443/oauth2/token',
     postLogoutRedirectUrl: 'http://localhost:5960/'
   }

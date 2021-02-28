@@ -16,5 +16,17 @@
         "url": "http://localhost:5960",
         "webRoot": "${workspaceFolder}"
       },
+      {
+        "name": "Launch Chrome - Linux",
+        "request": "launch",
+        "type": "chrome",
+        "runtimeArgs": [
+          "--disable-web-security",
+          "--disable-gpu",
+          "--user-data-dir=./tmpChromeSession"
+        ],
+        "url": "http://localhost:5960",
+        "webRoot": "${workspaceFolder}"
+      },
     ]
 }

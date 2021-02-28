@@ -6,7 +6,7 @@ export const authConfig: AuthConfig = {
     clientId: environment.authConfig.clientId,
     issuer: environment.authConfig.issuerUrl,
     scope: 'openid sub email name given_name family_name',
-    responseType: 'code',
+    //responseType: 'code',
     disablePKCE: false,
     sessionChecksEnabled: true,
     showDebugInformation: true,
