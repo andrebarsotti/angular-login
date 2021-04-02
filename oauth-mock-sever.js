@@ -9,7 +9,8 @@ async function main() {
   // Start the server
   await server.start(8080, 'localhost');
   console.log('Issuer URL:', server.issuer.url); // -> http://localhost:8080
-  
+
+  // Tratamento do Payload
   server.issuer.on('beforeSigning', (token, _req) => {
     token.payload.sub = 'andre.salvadeo'
     token.payload.email = 'teste@teste.com.br';
